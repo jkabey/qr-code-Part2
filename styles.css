@@ -1,0 +1,66 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(218, 44%, 22%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Container for QR Cards */
+ul.qr-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns layout */
+  gap: 20px;
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  max-width: 1200px;
+  overflow-x: auto;
+}
+
+/* QR Card Styling */
+.qr-card .card {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+.qr-image {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+h1 {
+  font-size: 18px;
+  margin: 15px 0;
+}
+
+p {
+  font-size: 15px;
+  color: hsl(216, 15%, 48%);
+}
+
+/* Mobile View - Stacks the QR cards in one column */
+@media screen and (max-width: 1000px) {
+  ul.qr-container {
+    grid-template-columns: 1fr; /* Single column layout */
+    overflow-x: scroll; /* Horizontal scrolling */
+  }
+
+  .qr-card {
+    margin-bottom: 20px; /* Adds space between each card */
+  }
+}
