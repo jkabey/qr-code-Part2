@@ -15,7 +15,7 @@ body {
 /* QR Container */
 ul.qr-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+  grid-template-columns: repeat(3, 1fr); 
   gap: 20px; /* Adds space between grid items */
   list-style-type: none;
   padding: 20px;
