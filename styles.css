@@ -1,87 +1,76 @@
-/* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* Import the Outfit font */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
 
-/* Body Styling */
+/* General styles */
 body {
   font-family: 'Outfit', sans-serif;
-  /* background-color: hsl(0, 0%, 100%); */
-  background-color: hsl(200, 80%, 90%);
-  color: hsl(218, 44%, 22%);
+  background-color: hsl(212, 45%, 89%);
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 20px;
+  margin: 0;
 }
 
-/* Container for QR Cards */
+/* QR Container */
 ul.qr-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Two columns layout */
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+  gap: 20px; /* Adds space between grid items */
   list-style-type: none;
-  padding: 0;
+  padding: 20px;
   width: 100%;
   max-width: 1200px;
-  overflow-x: auto;
+  box-sizing: border-box; /* Include padding in the element's total width and height */
 }
-/* Ensuring the fourth QR code is directly under the second QR code */
-ul.qr-container li:nth-child(4) {
-  grid-column: 2; /* Place it under the second QR code */
-}
-ul.qr-container li {
+
+.qr-container li {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-/* QR Card Styling */
-.qr-card .card {
-  background-color: white;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  text-align: center;
+  width: 100%;
 }
 
-.qr-image {
-  max-width: 100%;
+/* Place the 4th QR code under the 2nd column */
+.qr-container li:nth-child(4) {
+  grid-column: 2; /* This places the fourth QR code in the second column */
+}
+
+.qr-card {
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.qr-card img {
+  width: 100%;
+  max-width: 300px; /* Prevents images from growing too large */
   border-radius: 10px;
 }
 
-h1 {
-  font-size: 18px;
-  margin: 15px 0;
+.qr-card h1 {
+  font-size: 1.5rem;
+  color: hsl(218, 44%, 22%);
+  margin: 20px 0 10px;
 }
 
-p {
-  font-size: 15px;
+.qr-card p {
+  font-size: 1rem;
   color: hsl(216, 15%, 48%);
+  margin: 0;
 }
 
-/* Mobile View - Stacks the QR cards in one column */
-/* @media screen and (max-width: 1000px) {
+/* Responsive Design */
+@media screen and (max-width: 768px) {
   ul.qr-container {
-    grid-template-columns: 1fr; Single column layout */
-    /* overflow-x: scroll; /* Horizontal scrolling */
-  /* }  */
-  /* Mobile View - Stacks all QR codes in one column when screen width is less than 1000px */
-/* @media screen and (max-width: 1000px) {
-  ul.qr-container {
-    grid-template-columns: 1fr; /* Stacks all items in one column */
-  /* } */ 
-  /* Mobile View - Stacks all QR codes in one column when screen width is less than 1000px */
-@media screen and (max-width: 1000px) {
-  ul.qr-container {
-    grid-template-columns: 1fr !important; /* Force all items to stack in one column */
-    width: 100%; /* Ensure full width */
-    max-width: 1000px; /* Remove max-width restriction */
+    grid-template-columns: 1fr; /* Stacks the items vertically on smaller screens */
+    gap: 20px; /* Adds spacing between the stacked items */
   }
 
-  .qr-card {
-    margin-bottom: 20px; /* Adds space between each card */
+  /* Reset the fourth item's position on small screens */
+  .qr-container li:nth-child(4) {
+    grid-column: auto;
   }
 }
