@@ -29,7 +29,7 @@ ul.qr-container {
   max-width: 1200px;
   overflow-x: auto;
 }
-/* Ensure the fourth QR code is directly under the second QR code */
+/* Ensuring the fourth QR code is directly under the second QR code */
 ul.qr-container li:nth-child(4) {
   grid-column: 2; /* Place it under the second QR code */
 }
@@ -63,10 +63,22 @@ p {
 }
 
 /* Mobile View - Stacks the QR cards in one column */
+/* @media screen and (max-width: 1000px) {
+  ul.qr-container {
+    grid-template-columns: 1fr; Single column layout */
+    /* overflow-x: scroll; /* Horizontal scrolling */
+  /* }  */
+  /* Mobile View - Stacks all QR codes in one column when screen width is less than 1000px */
+/* @media screen and (max-width: 1000px) {
+  ul.qr-container {
+    grid-template-columns: 1fr; /* Stacks all items in one column */
+  /* } */ 
+  /* Mobile View - Stacks all QR codes in one column when screen width is less than 1000px */
 @media screen and (max-width: 1000px) {
   ul.qr-container {
-    grid-template-columns: 1fr; /* Single column layout */
-    overflow-x: scroll; /* Horizontal scrolling */
+    grid-template-columns: 1fr !important; /* Force all items to stack in one column */
+    width: 100%; /* Ensure full width */
+    max-width: 1000px; /* Remove max-width restriction */
   }
 
   .qr-card {
